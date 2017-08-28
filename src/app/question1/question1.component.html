@@ -1,0 +1,97 @@
+<nav class="navbar navbar-default" style="background-color:#4caee3">
+  <div class="container">
+    <div class="navbar-header">
+      <h1 class="site-heading" style="color:white">Zolo <span style="color:grey">Quiz</span> : AngularJS</h1>
+    </div>
+  </div>
+</nav>
+
+<div class="container" *ngIf="result==1">
+  <div class="row pull-right">
+    <div class="col-xs-12">
+      Time Left <div style="font-size:28px" [style.color]="getColor()">{{mintutes}} : <span *ngIf="seconds<10">0</span>{{seconds}}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <b>{{num+1}}Q) {{questions[num]}} ? </b>
+      <div id="answers" style="padding-top:20px;">
+        <div appRipple color="yellow" style="width:100px;"><div style="width:100px;padding:10px" (click)="btnClick('option1',1,num)" id="option1"> A <span style="padding-left:20px;"> {{options[num][0]}}</span></div></div>
+         <div appRipple color="yellow" style="width:100px;"><div style="width:100px;padding:10px" (click)="btnClick('option2',2,num)" id="option2"> B <span style="padding-left:20px;">{{options[num][1]}}</span></div></div>
+     </div>
+    </div>
+    <div class="col-md-6">
+      <img src="../../assets/correct.png" style="width:47%" [hidden]="acorrect">
+      <img src="../../assets/wrong.png" style="width:47%" [hidden]="awrong">
+    </div>
+  </div><br><br>
+  <div class="row text-center">
+    <button class="btn btn-primary pull-right" (click)="nextQ()" *ngIf="num==0 || num ==1">Next</button>
+    <button class="btn btn-primary" (click)="submit()" *ngIf="num==2">Submit</button>
+  </div>
+  
+</div>
+<div class="container" *ngIf="result==0">
+  <div class="row">
+    <h1 style="color:black;font-weight:bold">Result</h1>
+  </div><br>
+  <div class="row" style="font-weight:bold;background-color:aquamarine;border:1px solid black">
+    <div class="col-xs-4 text-center" style="padding:10px">
+      Questions
+    </div>
+    <div class="col-xs-4 text-center" style="padding:10px">
+      Your Answer
+    </div>
+    <div class="col-xs-4 text-center" style="padding:10px">
+      Correct Answer
+    </div>
+  </div>
+  <div class="row" style="border-left:1px solid black;border-right:1px solid black;padding:10px;">
+    <div class="col-xs-4">
+      AngularJS uses only one way data binding?
+    </div>
+    <div class="col-xs-4 text-center">
+        {{options[0][answers[0]-1]}}
+    </div>
+    <div class="col-xs-4 text-center">
+      False
+    </div>
+  </div>
+  <div class="row" style="border-left:1px solid black;border-right:1px solid black;padding:10px;">
+    <div class="col-xs-4">
+      Which angular module is loaded by default?
+    </div>
+    <div class="col-xs-4 text-center">
+        {{options[1][answers[1]-1]}}
+    </div>
+    <div class="col-xs-4 text-center">
+      ng
+    </div>
+  </div>
+   <div class="row" style="border-left:1px solid black;border-right:1px solid black;padding:10px;border-bottom: 1px solid black">
+    <div class="col-xs-4">
+     Do AngularJS provide reusable components?
+    </div>
+    <div class="col-xs-4 text-center">
+      {{options[2][answers[2]-1]}}
+    </div>
+    <div class="col-xs-4 text-center">
+      True
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <div style="display: block">
+  <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+</div>
+    </div>
+    <div class="col-xs-6">
+      <h1>Your Score : {{cacount}}/3</h1>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+
+
+
+  <!--<div class="row">
+     <div class="col-md-6 col-lg-6 col-sm-6 pull-left" style="display:inline-flex;width:50%">
+         <img src="../../assets/quiz.png" alt="" class="img-responsive" style="width:100%;height:100%">
+     </div>
+     <div class="col-md-6 col-lg-6 col-sd-6 col-xs-12 col-xs-offset-3 pull-right" style="background:black;display:inline-block;width:50%;height:100%">
+         <label for="Username" style="color:white">Username</label>
+         <input type="text" name="Username"><br><br>
+         <label for="password">Password</label>
+         <input type="password" name="password">
+     </div>
+  </div>-->
+<div style="width:100%;display:flex">
+  <div style="display:inline-block;width:50%;">
+     <img src="../../assets/quiz.png" alt="" class="img-responsive" style="width:100%;height:650px">
+  </div>
+  <div style="display:flex;width:50%;background:#3a3838;height:650px;align-items: center;justify-content: center">
+      <div class="center-block text-center">
+      <label for="Username" style="color:#ffc000">Username <span style="color:red">*</span> : </label>
+         <input type="text" name="Username" [(ngModel)]="username"><br><br>
+         <label for="password" style="color:#ffc000" >Password <span style="color:red">*</span> : </label>
+         <input type="password" name="password" [(ngModel)]="password"><br><br>
+         <span style="color:red">{{message}}</span><br><br>
+         <button class="btn btn-primary text-center" style="background-color:#ffc000;color:black;font-weight:bold" (click)="authUser()"> Begin Quiz </button>
+      </div>
+  </div>
+</div>
